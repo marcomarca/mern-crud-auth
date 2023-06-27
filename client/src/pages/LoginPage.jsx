@@ -51,13 +51,18 @@ export function LoginPage() {
             placeholder="Write your password"
             {...register("password", { required: true, minLength: 6 })}
           />
+          {/* Este Tag p que contiene los errors, esta conectado a el validador de react-hook-form, que esta conectado a el schema de zod, que esta conectado a el backend, que esta conectado a la base de datos.
+           */}
           <p>{errors.password?.message}</p>
 
           <Button>Login</Button>
         </form>
 
         <p className="flex gap-x-2 justify-between">
-          Don't have an account? <Link to="/register" className="text-sky-500">Sign up</Link>
+          Don't have an account?{" "}
+          <Link to="/register" className="text-sky-500">
+            Sign up
+          </Link>
         </p>
       </Card>
     </div>

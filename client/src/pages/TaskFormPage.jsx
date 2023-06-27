@@ -33,7 +33,7 @@ export function TaskFormPage() {
         });
       }
 
-      // navigate("/tasks");
+      navigate("/tasks");
     } catch (error) {
       console.log(error);
       // window.location.href = "/";

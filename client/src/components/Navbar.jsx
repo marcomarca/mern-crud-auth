@@ -3,8 +3,10 @@ import { useAuth } from "../context/authContext";
 import { ButtonLink } from "./ui/ButtonLink";
 
 export function Navbar() {
-  const { isAuthenticated, logout, user } = useAuth();
-  console.log(isAuthenticated, user)
+  const { isAuthenticated, logout, user } = useAuth(); // Se obtiene el estado `isAuthenticated` y la funcion `logout` del contexto `authContext` =>
+  // Pregunta: que pasa si quiere usar la funcion login de `authContext` en este componente?
+
+  console.log(isAuthenticated, user);
 
   return (
     <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
@@ -14,9 +16,7 @@ export function Navbar() {
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
           <>
-            <li>
-              Welcome {user.username}
-            </li>
+            <li>Welcome {user.username}</li>
             <li>
               <ButtonLink to="/add-task">Add Task</ButtonLink>
             </li>

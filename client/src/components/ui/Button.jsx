@@ -7,4 +7,4 @@ export function Button({ onClick, children }) {
       {children}
     </button>
   );
-}
+} // { Children } => Permite pasar cualquier componente como hijo de este componente, haciendo a este componente reutilizable.

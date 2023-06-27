@@ -12,7 +12,7 @@ const router = Router();
 
 router.post("/register", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
-router.get("/verify", verifyToken);
+router.get("/verify", verifyToken); // Se usa para verificar si el usuario esta logueado o no
 router.post("/logout", verifyToken, logout);
 
 export default router;

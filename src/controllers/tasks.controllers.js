@@ -1,14 +1,16 @@
 import Task from "../models/task.model.js";
 
+// getTasks => Obtener todas las tareas
 export const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find({ user : req.user.id }).populate("user");
+    const tasks = await Task.find({ user: req.user.id }).populate("user");
     res.json(tasks);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
 
+// createTask => Crear una tarea
 export const createTask = async (req, res) => {
   try {
     const { title, description, date } = req.body;
@@ -25,6 +27,7 @@ export const createTask = async (req, res) => {
   }
 };
 
+// deleteTask => Eliminar una tarea especifica por su id
 export const deleteTask = async (req, res) => {
   try {
     const deletedTask = await Task.findByIdAndDelete(req.params.id);
@@ -37,6 +40,7 @@ export const deleteTask = async (req, res) => {
   }
 };
 
+// updateTask => Actualizar una tarea especifica por su id
 export const updateTask = async (req, res) => {
   try {
     const { title, description, date } = req.body;
@@ -51,6 +55,7 @@ export const updateTask = async (req, res) => {
   }
 };
 
+// getTask => Obtener una tarea especifica por su id
 export const getTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
